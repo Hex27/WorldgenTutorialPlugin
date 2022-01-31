@@ -1,0 +1,7 @@
+name: WorldGenTutorial
+author: Hex_27
+version: 1.0.0
+api-version: 1.18
+description: World Generator
+main: org.worldgentutorial.main.WorldGenTutorialPlugin
+load: startup
