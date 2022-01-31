@@ -31,9 +31,8 @@ public class WorldGenTutorialChunkGenerator extends ChunkGenerator {
 		//within the bukkit API that the old tutorial also uses:
 		SimplexOctaveGenerator generator = new SimplexOctaveGenerator(new Random(info.getSeed()), 8); //8 refers to the number of octaves. More octaves are slower, but look better (less smooth, and more rough like in real life)
         
-		//I, for one, don't know what this number does, only that the bukkit tutorial set it way too low.
-		//In the bukkit tutorial, their scale made the world look too smooth. In vanilla
-		//Minecraft, the ground looks more rough.
+		//I, for one, don't know what this number does, only that the bukkit tutorial set it way too low
+		//and made the terrain excessively smooth.
 		generator.setScale(0.03D);
 		
 		return (int) (generator.noise(rawX, rawZ, 

@@ -15,6 +15,11 @@ public class WorldGenTutorialBlockPopulator extends BlockPopulator {
 	 * There is a deprecated populate method inside BlockPopulator
 	 * DO NOT USE THAT ONE UNLESS YOU INTENTIONALLY WANT TO. It is the
 	 * old blockpopulator and it will cause cascading problems.
+	 * 
+	 * This method generally gives you a 3x3 chunk region to work with, with
+	 * chunkX and chunkZ being the center chunk in the region.
+	 * 
+	 * DO NOT exceed this region, you'll get undefined behaviour/errors.
 	 */
 	@Override
 	public void populate(WorldInfo worldInfo, Random random, int chunkX, int chunkZ, LimitedRegion limitedRegion) {
@@ -34,6 +39,7 @@ public class WorldGenTutorialBlockPopulator extends BlockPopulator {
 		for(int rawX = chunkX*16; rawX < chunkX*16+16; rawX++)
         	for(int rawZ = chunkZ*16; rawZ < chunkZ*16+16; rawZ++)
 			{
+        		//A one in 6 chance
         		if(random.nextInt(6) == 0) {
         			y = getHighestGrassBlock(worldInfo, limitedRegion, rawX, rawZ);
         			if(y != worldInfo.getMinHeight())
@@ -41,7 +47,7 @@ public class WorldGenTutorialBlockPopulator extends BlockPopulator {
         		}
 			}
 	}
-	 
+	
 	//Iterates from highest max height to the first grass block below.
 	private int getHighestGrassBlock(WorldInfo worldInfo, LimitedRegion limitedRegion, int rawX, int rawZ) {
 		for(int y = worldInfo.getMaxHeight()-1; y > worldInfo.getMinHeight(); y--) {
