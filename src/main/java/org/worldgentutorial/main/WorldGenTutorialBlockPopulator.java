@@ -43,7 +43,7 @@ public class WorldGenTutorialBlockPopulator extends BlockPopulator {
         		if(random.nextInt(6) == 0) {
         			y = getHighestGrassBlock(worldInfo, limitedRegion, rawX, rawZ);
         			if(y != worldInfo.getMinHeight())
-        				limitedRegion.setType(rawX,  y+1, rawZ, Material.GRASS);
+        				limitedRegion.setType(rawX,  y+1, rawZ, Material.SHORT_GRASS);
         		}
 			}
 	}
